@@ -75,7 +75,7 @@ print 'SSH Access:', \
 # Software Install Restrictions
 # Sees if there are any install restrictions set under Security and Privacy
 restrictions = sp_cmd('spctl --status')
-print 'Software Install Restrictions', \
+print 'Software Install Restrictions:', \
   status("enabled" in restrictions), \
   restrictions
 
