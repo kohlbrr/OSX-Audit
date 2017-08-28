@@ -35,3 +35,5 @@ Where it breaks down is in the scope of reporting, and the scale it can run at.
 The checks it is currently making are important ones, but not comprehensive ones. Part of this will be fixed by adding check to tailor the script to the environment it's being run in, but another part is just automating more checks. This is an easy area for expansion.
 
 Since it's just a "run-and-done" command line `.py` script, it does not scale well to checking many systems. This could be alleviated by packaging the data into an object to be ent upstream, or even more simply through generating an output file to be referenced later (which is possible presently with output redirection).
+
+Another problem is testing. I'm currently testing this script on an older, slightly broken MBP 13". Ideally, this would be tested across a range of computers utilized by an organization instead of a single machine.
