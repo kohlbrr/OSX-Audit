@@ -68,6 +68,9 @@ print 'Filevault:', \
 # REQUIRES SUDO
 # Checks to see if SSH access is enabled in sharing settings
 ssh = sp_cmd('systemsetup -getremotelogin')
+if "Off" in ssh:
+  sp_cmd('systemsetup -setremotelogin off')
+  ssh = sp_cmd('systemsetup -getremotelogin')
 print 'SSH Access:', \
   status("Off" in ssh), \
   ssh
@@ -75,9 +78,9 @@ print 'SSH Access:', \
 # Software Install Restrictions
 # Sees if there are any install restrictions set under Security and Privacy
 restrictions = sp_cmd('spctl --status')
-if status("disabled" in restrictions): # one-try enable if disabled
-    sp_cmd('spctl --enable')
-    restrictions = sp_cmd('spctl --status')
+if "disabled" in restrictions: # one-try enable if disabled
+  sp_cmd('spctl --enable')
+  restrictions = sp_cmd('spctl --status')
 print 'Software Install Restrictions:', \
   status("enabled" in restrictions), \
   restrictions
